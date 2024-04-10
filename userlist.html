@@ -1,5 +1,7 @@
 <html>
     <head>
+        <link rel="stylesheet" href="styles.css">
+
         <script lang="javascript">
             var http=new XMLHttpRequest();
             http.onreadystatechange=function(){
@@ -7,8 +9,9 @@
                 var users=JSON.parse(http.responseText);
                 var resptext="";
                 //var users=http.responseText;
+                resptext+="<div class='ui column large blue'>Name</div><div class='ui column large blue'>E-mail</div>";
                 for(user of users){
-                    resptext+="<h2> Name:"+user["name"]+" Email:"+user["email"]+"</h2>";
+                    resptext+="<div class='ui column large'>"+user["name"]+"</div><div class='ui column large'>"+user["email"]+"</div>";
                 }
                 var element=document.getElementById("users");
                 element.innerHTML=resptext;                
@@ -18,7 +21,7 @@
         </script>
     </head>
     <body>
-        <h1>User list</h1>
-        <div id="users"></div>
+        <h1 class="ui header green middle">User list</h1>
+        <div class="ui two column grid blue" id="users"></div>
     </body>
 </html>
