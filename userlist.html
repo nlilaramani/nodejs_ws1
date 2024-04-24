@@ -13,7 +13,9 @@
                 for(user of users){
                     resptext+="<div class='ui column large'>"+user["name"]+"</div><div class='ui column large'>"+user["email"]+"</div>";
                 }
+                // Use DOM API to populate the page
                 var element=document.getElementById("users");
+                //element.innerHTML
                 element.innerHTML=resptext;                
             }
             http.open("GET","http://localhost:8090/users");
@@ -22,6 +24,8 @@
     </head>
     <body>
         <h1 class="ui header green middle">User list</h1>
-        <div class="ui two column grid blue" id="users"></div>
+        <div class="ui two column grid blue" id="users">
+            
+        </div>
     </body>
 </html>

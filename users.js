@@ -7,9 +7,18 @@ var app=express();
 var mysql=require('mysql');
 // Add body-parser,\
 var bodyParser = require('body-parser');
+// Add cors module
+const cors = require("cors");
 // for parsing application/json and forms data
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
+
+// cors options
+let corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200 
+};
+app.use(cors(corsOptions));
 // Add file systm module, to serve html and css files
 var fs=require('fs');
 // MySql connection config
